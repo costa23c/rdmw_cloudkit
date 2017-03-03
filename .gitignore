@@ -18,3 +18,4 @@ htmlcov/
 splinter_tests/*.log
 splinter_tests/screenshots
 ghostdriver.log
+.exe
