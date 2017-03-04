@@ -40,7 +40,7 @@ angular.module('XBeeGatewayApp')
 				
 	//CLAUDINE'S CODE STARTS HERE
 					//Claudine's Code for Wireless Distress Monitoring Network 
-					var br = "<br/>";
+					var br = "\n";
 					var zb_data = newText;
 					// 50°25'03.10"N -104°35'01.80"W
 
