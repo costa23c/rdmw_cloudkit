@@ -40,7 +40,7 @@ angular.module('XBeeGatewayApp')
 				
 	//CLAUDINE'S CODE STARTS HERE
 					//Claudine's Code for Wireless Distress Monitoring Network 
-					var br = "\r"; //Carriage Return
+					var br = String.fromCharCode(13); //Carriage Return
 					var zb_data = newText;
 					
 					//Search for the Distress Flag information's starting position
