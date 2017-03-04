@@ -40,10 +40,9 @@ angular.module('XBeeGatewayApp')
 				
 	//CLAUDINE'S CODE STARTS HERE
 					//Claudine's Code for Wireless Distress Monitoring Network 
-					var br = "\n";
+					var br = String.fromCharCode(13); //Carriage Return
 					var zb_data = newText;
-					// 50°25'03.10"N -104°35'01.80"W
-
+					
 					//Search for the Distress Flag information's starting position
 					var pos = zb_data.search("DF");
 					var df_data = zb_data.slice(pos+2,pos+3);
@@ -90,7 +89,7 @@ angular.module('XBeeGatewayApp')
 
 					//Output the worker information to the website
 					var worker_info_str = df_str + hr_str + loc_str;
-					newText = worker_info_str;
+					newText = br + worker_info_str + br;
                 $scope.displaySerialText(newText, true);
                 $scope.last_received_timestamp = _timestamp;
                 return;
