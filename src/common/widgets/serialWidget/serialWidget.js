@@ -37,6 +37,60 @@ angular.module('XBeeGatewayApp')
                     newText = decoded;
                 }
                 $log.info("Adding text:", newText);
+				
+	//CLAUDINE'S CODE STARTS HERE
+					//Claudine's Code for Wireless Distress Monitoring Network 
+					var br = "<br/>";
+					var zb_data = newText;
+					// 50°25'03.10"N -104°35'01.80"W
+
+					//Search for the Distress Flag information's starting position
+					var pos = zb_data.search("DF");
+					var df_data = zb_data.slice(pos+2,pos+3);
+					var df_str = "Status: ";
+					//Determine the status of the worker using the distress flag
+					df_data = parseInt(df_data, 10);
+					if(df_data < 1){
+						df_str = df_str + "OK" + br;
+					}else{
+						df_str = df_str + "Distressed" + br;
+					}
+
+					//Search for the Heart Rate information's starting position
+					pos = zb_data.search("HR");
+					var hr_data = zb_data.slice(pos+2,pos+5);
+					var hr_str = "Heart Rate: ";
+					//Just formatting the heart rate value
+					hr_data = parseInt(hr_data, 10);
+					hr_str = hr_str + hr_data + br;
+
+					//Search for the Location information's starting point
+					pos = zb_data.search("UTC");
+					var pos_loc_end = zb_data.search("t=");
+					//Cut the location substring
+					var loc_data = zb_data.slice(pos, pos_loc_end-1);
+					//LAT substring
+					pos = loc_data.search("LAT");
+					pos_loc_end = loc_data.search("LON");
+					var temp_lat_str = loc_data.slice(pos+3, pos_loc_end-1);
+					var lat_str = temp_lat_str.slice(0, 2) + "\xB0"	//50°
+								+ temp_lat_str.slice(2,4) + "\'"	//25'
+								+ temp_lat_str.slice(5, 7) + "." + temp_lat_str.slice(7, 9) + "\"" //03.10"
+								+ temp_lat_str.slice(10, 11) + " ";	//N
+
+					//LON substring
+					var temp_lon_str = loc_data.slice(pos_loc_end+3, loc_data.length);
+					var lon_str = temp_lon_str.slice(0, 3) + "\xB0" //104°
+								+ temp_lon_str.slice(3, 5) + "\'"   //35'
+								+ temp_lon_str.slice(6, 8) + "." + temp_lon_str.slice(8, 10) + "\"" //01.80"
+								+ temp_lon_str.slice(11, 12); //W
+
+					//Converting GPS string
+					var loc_str = "Location: " + lat_str + lon_str;
+
+					//Output the worker information to the website
+					var worker_info_str = df_str + hr_str + loc_str;
+					newText = worker_info_str;
                 $scope.displaySerialText(newText, true);
                 $scope.last_received_timestamp = _timestamp;
                 return;
