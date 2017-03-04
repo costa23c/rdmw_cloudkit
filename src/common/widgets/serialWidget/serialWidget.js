@@ -57,7 +57,9 @@ angular.module('XBeeGatewayApp')
 					}else{
 						df_str = df_str + "Distressed" + br;
 					}
-
+					
+					df_str = br + df_str;
+					
 					//Search for the Heart Rate information's starting position
 					pos = zb_data.search("HR");
 					var hr_data = zb_data.slice(pos+2,pos+5);
@@ -65,7 +67,8 @@ angular.module('XBeeGatewayApp')
 					//Just formatting the heart rate value
 					hr_data = parseInt(hr_data, 10);
 					hr_str = hr_str + hr_data + br;
-
+					hr_str = br + hr_str;
+					
 					//Search for the Location information's starting point
 					pos = zb_data.search("UTC");
 					var pos_loc_end = zb_data.search("t=");
@@ -89,11 +92,15 @@ angular.module('XBeeGatewayApp')
 
 					//Converting GPS string
 					var loc_str = "Location: " + lat_str + lon_str;
-
+					loc_str = br + loc_str;
 					//Output the worker information to the website
 					var worker_info_str = df_str + hr_str + loc_str;
-					newText = cr + worker_info_str + cr;
-                $scope.displaySerialText(newText, true);
+					newText = worker_info_str + cr;
+				
+				$scope.displaySerialText(dr_str, true);
+				$scope.displaySerialText(hr_str, true);
+				$scope.displaySerialText(loc_str, true);
+				//$scope.displaySerialText(newText, true);
                 $scope.last_received_timestamp = _timestamp;
                 return;
             }
