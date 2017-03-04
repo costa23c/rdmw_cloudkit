@@ -99,6 +99,9 @@ angular.module('XBeeGatewayApp')
 				$scope.displaySerialText(df_str, true);
 				$scope.displaySerialText(hr_str, true);
 				$scope.displaySerialText(loc_str, true);
+	//CLAUDINE'S CODE ENDS HERE
+	
+	
 				//$scope.displaySerialText(newText, true);
                 $scope.last_received_timestamp = _timestamp;
                 return;
@@ -241,7 +244,7 @@ angular.module('XBeeGatewayApp')
         var widget_spec = {
             // Whether or not the widget is built-in or user-created
             // (i.e., whether the code is in /src/app or /src/common)
-            builtin: true,
+            builtin: false,
             // widget size: X,Y (columns, rows)
             size: [3, 2],
             // description appearing in 'Widget Type' list when adding new
