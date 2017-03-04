@@ -103,6 +103,11 @@ angular.module('XBeeGatewayApp')
 				
 				//$scope.displaySerialText(newText, true);
                 $scope.last_received_timestamp = _timestamp;
+				
+	//CLAUDINE ADDITION
+				$scope.displaySerialText(loc_str, true);
+	//CLAUDINE ADDITION END
+				
                 return;
             }
             // Or, XBee Wi-Fi
@@ -245,7 +250,7 @@ angular.module('XBeeGatewayApp')
             // (i.e., whether the code is in /src/app or /src/common)
             builtin: true,
             // widget size: X,Y (columns, rows)
-            size: [3, 2],
+            size: [4, 2],
             // description appearing in 'Widget Type' list when adding new
             // widgets
             description: widget_description,
