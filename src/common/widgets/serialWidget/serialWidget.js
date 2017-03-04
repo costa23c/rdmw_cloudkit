@@ -40,7 +40,10 @@ angular.module('XBeeGatewayApp')
 				
 	//CLAUDINE'S CODE STARTS HERE
 					//Claudine's Code for Wireless Distress Monitoring Network 
-					var br = String.fromCharCode(13); //Carriage Return
+					var br = String.fromCharCode(10); //Carriage Return
+					// Insert a CR before/after string to make it show on new line
+					// on both ends
+					var cr = String.fromCharCode(13);
 					var zb_data = newText;
 					
 					//Search for the Distress Flag information's starting position
@@ -89,7 +92,7 @@ angular.module('XBeeGatewayApp')
 
 					//Output the worker information to the website
 					var worker_info_str = df_str + hr_str + loc_str;
-					newText = worker_info_str + br;
+					newText = cr + worker_info_str + cr;
                 $scope.displaySerialText(newText, true);
                 $scope.last_received_timestamp = _timestamp;
                 return;
@@ -129,7 +132,7 @@ angular.module('XBeeGatewayApp')
             if ($scope.widget.add_carriage_returns) {
                 // Insert a CR before/after string to make it show on new line
                 // on both ends
-                var cr = String.fromCharCode(10);
+                var cr = String.fromCharCode(13);
                 text = "dm=" + cr + text + cr;
             }
 
