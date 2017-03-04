@@ -129,7 +129,7 @@ angular.module('XBeeGatewayApp')
             if ($scope.widget.add_carriage_returns) {
                 // Insert a CR before/after string to make it show on new line
                 // on both ends
-                var cr = String.fromCharCode(13);
+                var cr = String.fromCharCode(10);
                 text = "dm=" + cr + text + cr;
             }
 
