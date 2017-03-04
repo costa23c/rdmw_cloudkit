@@ -37,7 +37,7 @@ angular.module('XBeeGatewayApp')
                     newText = decoded;
                 }
                 $log.info("Adding text:", newText);
-				
+                
 	//CLAUDINE'S CODE STARTS HERE
 					//Claudine's Code for Wireless Distress Monitoring Network 
 					var br = String.fromCharCode(10); //Carriage Return
@@ -100,8 +100,7 @@ angular.module('XBeeGatewayApp')
 				$scope.displaySerialText(hr_str, true);
 				$scope.displaySerialText(loc_str, true);
 	//CLAUDINE'S CODE ENDS HERE
-	
-	
+				
 				//$scope.displaySerialText(newText, true);
                 $scope.last_received_timestamp = _timestamp;
                 return;
@@ -239,12 +238,12 @@ angular.module('XBeeGatewayApp')
     // to add widget definitions to the widget registry at start-up.
     .run(function(widgetRegistry) {
         // Adding the widget to the widget registry
-        var widget_type_key = 'workerInfo';
+        var widget_type_key = 'serial';
         var widget_description = 'Worker Information Widget';
         var widget_spec = {
             // Whether or not the widget is built-in or user-created
             // (i.e., whether the code is in /src/app or /src/common)
-            builtin: false,
+            builtin: true,
             // widget size: X,Y (columns, rows)
             size: [3, 2],
             // description appearing in 'Widget Type' list when adding new
