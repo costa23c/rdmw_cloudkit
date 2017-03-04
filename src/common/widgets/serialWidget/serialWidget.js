@@ -89,7 +89,7 @@ angular.module('XBeeGatewayApp')
 
 					//Output the worker information to the website
 					var worker_info_str = df_str + hr_str + loc_str;
-					newText = br + worker_info_str + br;
+					newText = worker_info_str + br;
                 $scope.displaySerialText(newText, true);
                 $scope.last_received_timestamp = _timestamp;
                 return;
