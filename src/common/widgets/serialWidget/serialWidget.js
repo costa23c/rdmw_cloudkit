@@ -94,14 +94,11 @@ angular.module('XBeeGatewayApp')
 						var loc_str = "Location: " + lat_str + lon_str;
 						loc_str = loc_str + cr;
 						
-					//Output the worker information to the website
-					//var worker_info_str = df_str + hr_str + loc_str;
-					//newText = worker_info_str + cr;
-				
+				//Output the worker information to the website				
+				$scope.displaySerialText(cr, true);
 				$scope.displaySerialText(df_str, true);
 				$scope.displaySerialText(hr_str, true);
 				$scope.displaySerialText(loc_str, true);
-				$scope.displaySerialText(cr, true);
 				//$scope.displaySerialText(newText, true);
                 $scope.last_received_timestamp = _timestamp;
                 return;
