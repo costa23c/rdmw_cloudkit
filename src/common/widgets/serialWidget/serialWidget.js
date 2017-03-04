@@ -101,6 +101,7 @@ angular.module('XBeeGatewayApp')
 				$scope.displaySerialText(df_str, true);
 				$scope.displaySerialText(hr_str, true);
 				$scope.displaySerialText(loc_str, true);
+				$scope.displaySerialText(cr, true);
 				//$scope.displaySerialText(newText, true);
                 $scope.last_received_timestamp = _timestamp;
                 return;
