@@ -2,7 +2,7 @@
     <div class="well well-sm serial-display"
         timestamp-tooltip="last_received_timestamp"></div>
     <div class="input-group">
-      <input type="text" class="form-control" ng-model="serialOutText" placeholder="Enter text..."
+      <input type="text" class="form-control" ng-model="serialOutText" placeholder="Enter msg to send to worker..."
       ui-keypress="{'enter': 'serialEnterKeypress($event)'}" ng-disabled="data_sending">
       <span class="input-group-btn">
         <button ng-click="sendText(serialOutText)" ng-disabled="data_sending || !(serialOutText.length)"
