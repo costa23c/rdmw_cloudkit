@@ -99,6 +99,15 @@ angular.module('XBeeGatewayApp')
 				$scope.displaySerialText(df_str, true);
 				$scope.displaySerialText(hr_str, true);
 				$scope.displaySerialText(loc_str, true);
+				
+				//Fetch the current date and time, and display it on the widget
+				var current_d = new Date();
+				var date_time_str = current_d.toString();
+				var date = date_time_str.slice(4, 15);
+				var tim = date_time_str.slice(16, 24);
+				var date_time_stamp = date + " -- " + tim + " CST";
+				$scope.displaySerialText(date_time_stamp, true);
+				
 	//CLAUDINE'S CODE ENDS HERE
 				
 				//$scope.displaySerialText(newText, true);
