@@ -105,7 +105,7 @@ angular.module('XBeeGatewayApp')
 				var date_time_str = current_d.toString();
 				var date = date_time_str.slice(4, 15);
 				var tim = date_time_str.slice(16, 24);
-				var date_time_stamp = date + " -- " + tim + " CST";
+				var date_time_stamp = date + " -- " + tim + " CST" + cr;
 				$scope.displaySerialText(date_time_stamp, true);
 				
 	//CLAUDINE'S CODE ENDS HERE
