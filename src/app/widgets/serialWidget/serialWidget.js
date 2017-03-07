@@ -156,8 +156,13 @@ angular.module('XBeeGatewayApp')
             dashboardApi.send_serial($scope.widget.device, $scope.widget.radio, text).then(
                 function(result){
                     // On success, show the sent text
+					
+	//CLAUDINE MODIFIED START		
 					var text_display = "Message sent: " + text.slice(3, text.length);
                     $scope.displaySerialText(text_display, false);
+	//CLAUDINE MODIFIED END
+	
+				//	$scope.displaySerialText(text, false);
                     // Clear the input box for next entry
                     $scope.serialOutText = null;
                     // Reenable input
